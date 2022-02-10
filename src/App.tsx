@@ -5,12 +5,9 @@ function App(): JSX.Element {
     return (
         <div className="App">
             <header className="App-header">
-                UD CISC275 with React Hooks and TypeScript
+                Colin Stetler from CISC275 will be epic in 4.3 seconds.
             </header>
-            <p>
-                Edit <code>src/App.tsx</code> and save. This page will
-                automatically reload.
-            </p>
+            <p>You cannot stop this.</p>
         </div>
     );
 }
