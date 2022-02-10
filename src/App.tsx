@@ -7,7 +7,7 @@ function App(): JSX.Element {
             <header className="App-header">
                 Colin Stetler from CISC275 will be epic in 4.3 seconds.
             </header>
-            <p>You cannot stop this.</p>
+            <p>You cannot stop this. You are powerless.</p>
         </div>
     );
 }
