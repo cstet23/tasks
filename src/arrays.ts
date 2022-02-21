@@ -1,3 +1,5 @@
+import { isNumberObject } from "util/types";
+
 /**
  * Consume an array of numbers, and return a new array containing
  * JUST the first and last number. If there are no elements, return
@@ -5,7 +7,13 @@
  * the number twice.
  */
 export function bookEndList(numbers: number[]): number[] {
-    return numbers;
+    if (numbers.length === 0) {
+        return numbers;
+    } else {
+        const edgeNums = [...numbers];
+        edgeNums.splice(1, edgeNums.length - 1, numbers[edgeNums.length - 1]);
+        return edgeNums;
+    }
 }
 
 /**
