@@ -90,7 +90,24 @@ export function countShortWords(words: string[]): number {
  * then return true.
  */
 export function allRGB(colors: string[]): boolean {
-    return false;
+    if (colors.length === 0) {
+        return true;
+    } else {
+        const isRGB = (str: string): boolean =>
+            str === "red" || str === "green" || str === "blue";
+        const colorNums = colors.map((color: string): number =>
+            isRGB(color) ? 0 : 1
+        );
+        const final = colorNums.reduce(
+            (res: number, colorNum: number) => res + colorNum,
+            0
+        );
+        if (final > 0) {
+            return false;
+        } else {
+            return true;
+        }
+    }
 }
 
 /**
