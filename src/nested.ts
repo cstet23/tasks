@@ -57,7 +57,7 @@ export function removeQuestion(questions: Question[], id: number): Question[] {
  * questions, as an array.
  */
 export function getNames(questions: Question[]): string[] {
-    const questionNames: string[] = questions.reduce(
+    const questionNames = questions.reduce(
         (qNames: string[], current: Question) => [...qNames, current.name],
         []
     );
@@ -68,7 +68,11 @@ export function getNames(questions: Question[]): string[] {
  * Consumes an array of questions and returns the sum total of all their points added together.
  */
 export function sumPoints(questions: Question[]): number {
-    return 0;
+    const pointSum = questions.reduce(
+        (sum: number, current: Question) => sum + current.points,
+        0
+    );
+    return pointSum;
 }
 
 /***
