@@ -130,11 +130,15 @@ export function toCSV(questions: Question[]): string {
  * making the `text` an empty string, and using false for both `submitted` and `correct`.
  */
 export function makeAnswers(questions: Question[]): Answer[] {
-    /*const answers = questions.reduce((ansList: Answer[], q: Question) => [
-        ...ansList,
-        { questionId: q.id, text: "", submitted: false, correct: false }
-    ]);*/
-    return [];
+    const answers = questions.map(
+        (q: Question): Answer => ({
+            questionId: q.id,
+            text: "",
+            submitted: false,
+            correct: false
+        })
+    );
+    return answers;
 }
 
 /***
@@ -244,6 +248,24 @@ export function editOption(
     targetOptionIndex: number,
     newOption: string
 ) {
+    /*let newQuestions: Question[] = [];
+    if (targetOptionIndex === -1) {
+        newQuestions = questions.map(
+            (q: Question): Question =>
+                q.id === targetId
+                    ? { ...q, options: [...q.options, newOption] }
+                    : q
+        );
+    } else {
+        newQuestions = [...questions];
+        const theQuestion = newQuestions.find(
+            (q: Question): boolean => q.id === targetId
+        );
+        if (theQuestion !== undefined) {
+            theQuestion.options.splice(targetOptionIndex, 1, newOption);
+        }
+    }
+    return newQuestions;*/
     return [];
 }
 
