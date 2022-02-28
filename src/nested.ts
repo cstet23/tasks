@@ -1,6 +1,6 @@
 import { Answer } from "./interfaces/answer";
 import { Question, QuestionType } from "./interfaces/question";
-import { makeBlankQuestion } from "./objects";
+import { makeBlankQuestion, duplicateQuestion } from "./objects";
 
 /**
  * Consumes an array of questions and returns a new array with only the questions
@@ -248,7 +248,7 @@ export function editOption(
     targetOptionIndex: number,
     newOption: string
 ) {
-    /*let newQuestions: Question[] = [];
+    let newQuestions: Question[] = [];
     if (targetOptionIndex === -1) {
         newQuestions = questions.map(
             (q: Question): Question =>
@@ -257,16 +257,23 @@ export function editOption(
                     : q
         );
     } else {
-        newQuestions = [...questions];
-        const theQuestion = newQuestions.find(
-            (q: Question): boolean => q.id === targetId
+        const theQuestion = findingHelper(questions, targetId);
+        theQuestion.options.splice(targetOptionIndex, 1, newOption);
+        newQuestions = questions.map(
+            (q: Question): Question =>
+                q.id === targetId ? { ...theQuestion } : q
         );
-        if (theQuestion !== undefined) {
-            theQuestion.options.splice(targetOptionIndex, 1, newOption);
-        }
     }
-    return newQuestions;*/
-    return [];
+    return newQuestions;
+}
+
+/*Helper function for editOption*/
+export function findingHelper(questions: Question[], target: number): Question {
+    let theQuestion = questions.find((q: Question): boolean => q.id === target);
+    if (theQuestion === undefined) {
+        theQuestion = questions[0];
+    }
+    return theQuestion;
 }
 
 /***
@@ -280,5 +287,11 @@ export function duplicateQuestionInArray(
     targetId: number,
     newId: number
 ): Question[] {
-    return [];
+    const newQuestions = [...questions];
+    const theQuestion = newQuestions.findIndex(
+        (q: Question): boolean => q.id === targetId
+    );
+    const newQ = duplicateQuestion(newId, newQuestions[theQuestion]);
+    newQuestions.splice(theQuestion + 1, 0, newQ);
+    return newQuestions;
 }
