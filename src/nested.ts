@@ -257,23 +257,19 @@ export function editOption(
                     : q
         );
     } else {
-        const theQuestion = findingHelper(questions, targetId);
-        theQuestion.options.splice(targetOptionIndex, 1, newOption);
         newQuestions = questions.map(
-            (q: Question): Question =>
-                q.id === targetId ? { ...theQuestion } : q
+            (q: Question): Question => ({ ...q, options: [...q.options] })
+        );
+        const theQuestionIndex = newQuestions.findIndex(
+            (q: Question): boolean => q.id === targetId
+        );
+        newQuestions[theQuestionIndex].options.splice(
+            targetOptionIndex,
+            1,
+            newOption
         );
     }
     return newQuestions;
-}
-
-/*Helper function for editOption*/
-export function findingHelper(questions: Question[], target: number): Question {
-    let theQuestion = questions.find((q: Question): boolean => q.id === target);
-    if (theQuestion === undefined) {
-        theQuestion = questions[0];
-    }
-    return theQuestion;
 }
 
 /***
