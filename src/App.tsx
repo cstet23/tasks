@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 import { ChangeType } from "./components/ChangeType";
 import { RevealAnswer } from "./components/RevealAnswer";
@@ -16,8 +16,10 @@ import { EditMode } from "./form-components/EditMode";
 import { MultipleChoiceQuestion } from "./form-components/MultipleChoiceQuestion";
 import { ChangeColor } from "./form-components/ChangeColor";
 import { Quizzer } from "./quizzer/Quizzer";
+import { ShowOthers } from "./quizzer/ShowOthers";
 
 function App(): JSX.Element {
+    const [visible, setVisible] = useState<boolean>(true);
     return (
         <div className="App">
             <header
@@ -28,38 +30,44 @@ function App(): JSX.Element {
             </header>
             <Quizzer></Quizzer>
             <hr></hr>
-            <CheckAnswer expectedAnswer="42"></CheckAnswer>
+            <ShowOthers setVisible={setVisible} visible={visible}></ShowOthers>
             <hr></hr>
-            <GiveAttempts></GiveAttempts>
-            <hr></hr>
-            <EditMode></EditMode>
-            <hr></hr>
-            <ChangeColor></ChangeColor>
-            <hr></hr>
-            <MultipleChoiceQuestion
-                options={["a", "b", "c"]}
-                expectedAnswer="b"
-            ></MultipleChoiceQuestion>
-            <hr></hr>
-            <DoubleHalf></DoubleHalf>
-            <hr></hr>
-            <ChooseTeam></ChooseTeam>
-            <hr></hr>
-            <ColoredBox></ColoredBox>
-            <hr></hr>
-            <ShoveBox></ShoveBox>
-            <hr></hr>
-            <Counter></Counter>
-            <hr />
-            <RevealAnswer></RevealAnswer>
-            <hr />
-            <StartAttempt></StartAttempt>
-            <hr />
-            <TwoDice></TwoDice>
-            <hr />
-            <ChangeType></ChangeType>
-            <hr />
-            <CycleHoliday></CycleHoliday>
+            {visible && (
+                <div>
+                    <CheckAnswer expectedAnswer="42"></CheckAnswer>
+                    <hr></hr>
+                    <GiveAttempts></GiveAttempts>
+                    <hr></hr>
+                    <EditMode></EditMode>
+                    <hr></hr>
+                    <ChangeColor></ChangeColor>
+                    <hr></hr>
+                    <MultipleChoiceQuestion
+                        options={["a", "b", "c"]}
+                        expectedAnswer="b"
+                    ></MultipleChoiceQuestion>
+                    <hr></hr>
+                    <DoubleHalf></DoubleHalf>
+                    <hr></hr>
+                    <ChooseTeam></ChooseTeam>
+                    <hr></hr>
+                    <ColoredBox></ColoredBox>
+                    <hr></hr>
+                    <ShoveBox></ShoveBox>
+                    <hr></hr>
+                    <Counter></Counter>
+                    <hr />
+                    <RevealAnswer></RevealAnswer>
+                    <hr />
+                    <StartAttempt></StartAttempt>
+                    <hr />
+                    <TwoDice></TwoDice>
+                    <hr />
+                    <ChangeType></ChangeType>
+                    <hr />
+                    <CycleHoliday></CycleHoliday>
+                </div>
+            )}
         </div>
     );
 }
