@@ -19,9 +19,14 @@ import { Quizzer } from "./quizzer/Quizzer";
 import { ShowOthers } from "./quizzer/ShowOthers";
 import sketch1 from "./assets/quizzersketchp1.jpg";
 import sketch2 from "./assets/quizzersketchp2.jpg";
+import quizzes from "./data/Quizzes.json";
+import { Quiz } from "./interfaces/Quiz";
+
+const QUIZZES = quizzes.map((quiz): Quiz => ({ ...quiz }));
 
 function App(): JSX.Element {
     const [visible, setVisible] = useState<boolean>(true);
+    const [quizzes, setQuizzes] = useState<Quiz[]>(QUIZZES);
     return (
         <div className="App">
             <header
@@ -30,7 +35,7 @@ function App(): JSX.Element {
             >
                 CISC275
             </header>
-            <Quizzer></Quizzer>
+            <Quizzer quizzes={QUIZZES}></Quizzer>
             <hr></hr>
             <ShowOthers setVisible={setVisible} visible={visible}></ShowOthers>
             <hr></hr>

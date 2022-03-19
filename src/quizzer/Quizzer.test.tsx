@@ -4,7 +4,7 @@ import { Quizzer } from "./Quizzer";
 
 describe("Quizzer Tests", () => {
     beforeEach(() => {
-        render(<Quizzer />);
+        render(<Quizzer quizzes={[]} />);
     });
     test("The Quizzer renders", () => {
         // Up to you to decide what your tests are!

@@ -1,0 +1,106 @@
+[
+    {
+        "title": "cool quiz 1",
+        "description": "this is my cool quiz",
+        "questionCount": 3,
+        "pointCount": 5,
+        "questions": [
+            {
+                "id": 1,
+                "name": "Question 1",
+                "body": "who is really cool",
+                "type": "multiple_choice_question",
+                "options": ["me", "not me"],
+                "expected": "me",
+                "points": 1,
+                "published": true
+            },
+            {
+                "id": 2,
+                "name": "Question 2",
+                "body": "why am i cool",
+                "type": "short_answer_question",
+                "options": [],
+                "expected": "swag",
+                "points": 1,
+                "published": true
+            },
+            {
+                "id": 3,
+                "name": "Question 3",
+                "body": "what is the mass of the sun",
+                "type": "multiple_choice_question",
+                "options": ["1", "2", "3", "a lot"],
+                "expected": "a lot",
+                "points": 3,
+                "published": true
+            }
+        ]
+    },
+    {
+        "title": "Quiz for Elijah Wood",
+        "description": "Important Interview Quiz",
+        "questionCount": 4,
+        "pointCount": 20,
+        "questions": [
+            {
+                "id": 1,
+                "name": "Question 1",
+                "body": "Do you wear wigs?",
+                "type": "multiple_choice_question",
+                "options": ["Yes I do", "No I do not"],
+                "expected": "No I do not",
+                "points": 5,
+                "published": true
+            },
+            {
+                "id": 2,
+                "name": "Question 2",
+                "body": "Have you worn wigs?",
+                "type": "multiple_choice_question",
+                "options": ["Yes I have", "No I have not"],
+                "expected": "No I have not",
+                "points": 5,
+                "published": true
+            },
+            {
+                "id": 3,
+                "name": "Question 3",
+                "body": "Will you wear wigs?",
+                "type": "multiple_choice_question",
+                "options": ["Yes", "No", "Maybe"],
+                "expected": "Maybe",
+                "points": 5,
+                "published": true
+            },
+            {
+                "id": 4,
+                "name": "Question 4",
+                "body": "When will you wear wigs?",
+                "type": "short_answer_question",
+                "options": [],
+                "expected": "HAHAHAHA",
+                "points": 5,
+                "published": true
+            }
+        ]
+    },
+    {
+        "title": "Chemistry Quiz",
+        "description": "Quiz for CHEM104",
+        "questionCount": 1,
+        "pointCount": 1,
+        "questions": [
+            {
+                "id": 1,
+                "name": "Question 1",
+                "body": "Chemistry",
+                "type": "multiple_choice_question",
+                "options": ["true", "false"],
+                "expected": "true",
+                "points": 1,
+                "published": true
+            }
+        ]
+    }
+]
