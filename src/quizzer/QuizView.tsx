@@ -26,7 +26,7 @@ export function QuizView({ quiz }: { quiz: Quiz }): JSX.Element {
                                 <li key={question.id}>
                                     <div>{question.name}</div>
                                     <div>{question.body}</div>
-                                    {question.type ===
+                                    {/*question.type ===
                                     "multiple_choice_question" ? (
                                         <div>
                                             {question.options.map(
@@ -50,7 +50,7 @@ export function QuizView({ quiz }: { quiz: Quiz }): JSX.Element {
                                         </div>
                                     ) : (
                                         <div></div>
-                                    )}
+                                    )*/}
                                 </li>
                             ))}
                         </ul>
