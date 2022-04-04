@@ -73,8 +73,13 @@ export function QuizView({
                         </div>
                     </Row>
                 )}
-                <hr></hr>
             </Col>
+            <Col>
+                <Row>
+                    <span>Points: {quiz.pointCount}</span>
+                </Row>
+            </Col>
+            <hr></hr>
         </Container>
     );
 }
