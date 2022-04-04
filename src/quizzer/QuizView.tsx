@@ -3,7 +3,13 @@ import { Container, Row, Col, Form } from "react-bootstrap";
 import { Quiz } from "../interfaces/Quiz";
 import { QuizzerQuestion } from "../interfaces/QuizzerQuestion";
 
-export function QuizView({ quiz }: { quiz: Quiz }): JSX.Element {
+export function QuizView({
+    quiz,
+    selected
+}: {
+    quiz: Quiz;
+    selected: string;
+}): JSX.Element {
     const [editing, setEditing] = useState<boolean>(false);
 
     function updateEditing() {
@@ -14,19 +20,21 @@ export function QuizView({ quiz }: { quiz: Quiz }): JSX.Element {
         <span>editing</span>
     ) : (
         <Container>
-            <Row>
-                <Col>
+            <Col>
+                <Row>
                     <h3>{quiz.title}</h3>
                     <span>{quiz.description}</span>
-                </Col>
-                <Col>
-                    <div>
-                        <ul>
-                            {quiz.questions.map((question: QuizzerQuestion) => (
-                                <li key={question.id}>
-                                    <div>{question.name}</div>
-                                    <div>{question.body}</div>
-                                    {question.type ===
+                </Row>
+                {selected === quiz.title && (
+                    <Row>
+                        <div>
+                            <ul>
+                                {quiz.questions.map(
+                                    (question: QuizzerQuestion) => (
+                                        <li key={question.id}>
+                                            <div>{question.name}</div>
+                                            <div>{question.body}</div>
+                                            {/*question.type ===
                                     "multiple_choice_question" ? (
                                         <div>
                                             {question.options.map(
@@ -50,13 +58,16 @@ export function QuizView({ quiz }: { quiz: Quiz }): JSX.Element {
                                         </div>
                                     ) : (
                                         <div></div>
-                                    )}
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-                </Col>
-            </Row>
+                                    )*/}
+                                        </li>
+                                    )
+                                )}
+                            </ul>
+                        </div>
+                    </Row>
+                )}
+                <hr></hr>
+            </Col>
         </Container>
     );
 }
