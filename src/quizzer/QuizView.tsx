@@ -32,33 +32,40 @@ export function QuizView({
                                 {quiz.questions.map(
                                     (question: QuizzerQuestion) => (
                                         <li key={question.id}>
-                                            <div>{question.name}</div>
+                                            <div style={{ fontWeight: "bold" }}>
+                                                {question.name}
+                                            </div>
                                             <div>{question.body}</div>
-                                            {/*question.type ===
-                                    "multiple_choice_question" ? (
-                                        <div>
-                                            {question.options.map(
-                                                (option: string) => (
-                                                    <Form.Check
-                                                        key={
-                                                            question.name +
-                                                            option
-                                                        }
-                                                        type="radio"
-                                                        name={question.name}
-                                                        id={
-                                                            question.name +
-                                                            option
-                                                        }
-                                                        label={option}
-                                                        value={option}
-                                                    />
-                                                )
+                                            {question.type === "mc" ? (
+                                                <div>
+                                                    {question.options.map(
+                                                        (option: string) => (
+                                                            <Form.Check
+                                                                key={
+                                                                    question.name +
+                                                                    option
+                                                                }
+                                                                type="radio"
+                                                                name={
+                                                                    question.name
+                                                                }
+                                                                id={
+                                                                    question.name +
+                                                                    option
+                                                                }
+                                                                label={option}
+                                                                value={option}
+                                                            />
+                                                        )
+                                                    )}
+                                                </div>
+                                            ) : (
+                                                <div>
+                                                    <Form.Group>
+                                                        <Form.Control />
+                                                    </Form.Group>
+                                                </div>
                                             )}
-                                        </div>
-                                    ) : (
-                                        <div></div>
-                                    )*/}
                                         </li>
                                     )
                                 )}
